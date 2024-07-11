@@ -1,63 +1,16 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
-	<title>Min Cost Ropes</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-	<script>
-		function mincost(arr) {
-			if (arr.length <= 1) return 0;
+	<!-- the entire body must be written by student -->
+    <script type="text/javascript" src="./script.js">
+</script>
 
-			// Sort the array of ropes in ascending order
-			arr.sort((a, b) => a - b);
-
-			let totalCost = 0;
-
-			// Combine the ropes until only one rope is left
-			while (arr.length > 1) {
-				// Take two smallest ropes
-				let first = arr.shift();
-				let second = arr.shift();
-
-				// Combine them
-				let combined = first + second;
-
-				// Add the cost to the total cost
-				totalCost += combined;
-
-				// Insert the combined rope back into the array and keep it sorted
-				let i = 0;
-				while (i < arr.length && arr[i] < combined) {
-					i++;
-				}
-				arr.splice(i, 0, combined);
-			}
-
-			return totalCost;
-		}
-
-		function Main() {
-			var n = prompt("Enter the number of ropes");
-			if (n < 1 || n > 1000) {
-				alert("Number of ropes should be between 1 and 1000");
-				return;
-			}
-
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				var length = prompt("Enter length of rope " + (i + 1));
-				length = parseInt(length);
-				if (length < 1 || length > 10000) {
-					alert("Length of each rope should be between 1 and 10000");
-					return;
-				}
-				arr.push(length);
-			}
-
-			alert("Minimum cost to connect all ropes: " + mincost(arr));
-		}
-
-		Main();
-	</script>
 </body>
+
 </html>
